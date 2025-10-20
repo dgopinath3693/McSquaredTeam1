@@ -1,6 +1,4 @@
-Here's a README.md file based on the provided Python scripts.
-
-Integrated Product & Content Scraper
+## Integrated Product & Content Scraper
 This project discovers and scrapes content related to a company's products from its own sites, competitor sites, and third-party domains. It uses DuckDuckGo for URL discovery, crawls pages to extract structured content, and saves the data in a normalized JSON-based content store.
 
 Features
