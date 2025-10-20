@@ -1,0 +1,46 @@
+FUNCTION load_scraped_content(engine):
+    OPEN database session
+    competitor_texts = GET all page texts where tier != 'OWN'
+    brand_texts = GET all page texts where tier == 'OWN'
+
+    IF brand_texts is empty:
+        brand_texts = ["Default brand content example"]
+
+    RETURN competitor_texts, brand_texts
+
+
+FUNCTION detect_content_gaps(competitor_texts, brand_texts, top_k = 10):
+    CREATE TF-IDF vectorizer with English stop words, max 2000 features
+    all_texts = competitor_texts + brand_texts
+    tfidf_matrix = FIT and TRANSFORM all_texts using vectorizer
+
+    competitor_vectors = FIRST len(competitor_texts) rows of tfidf_matrix
+    brand_vectors = REMAINING rows of tfidf_matrix
+
+    similarity_matrix = COMPUTE cosine similarity between competitor_vectors and brand_vectors
+    avg_similarity_per_competitor = AVERAGE similarity for each competitor text
+
+    gap_indices = INDICES of competitor texts with lowest avg similarity (take top_k)
+
+    gap_terms = EMPTY set
+    FOR each index i in gap_indices:
+        top_terms = EXTRACT top 10 highest TF-IDF terms from competitor_vectors[i]
+        ADD top_terms to gap_terms
+
+    RETURN gap_terms as list
+
+
+FUNCTION classify_and_prioritize_gaps(gap_terms):
+    gaps = EMPTY list
+    FOR each term in gap_terms:
+        IF length of term > 10:
+            priority = "High"
+        ELSE:
+            priority = "Medium"
+        ADD {
+            "term": term,
+            "priority": priority,
+            "impact_reason": "Frequent in competitor content, missing from brand coverage"
+        } TO gaps
+
+    RETURN gaps
