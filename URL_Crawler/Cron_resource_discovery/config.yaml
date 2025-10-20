@@ -1,0 +1,18 @@
+Company_name: Nike
+main_domain: nike.com
+keywords:
+  - shoes
+  - sneakers
+  - Jordans
+  - athletic footwear
+  - sportswear
+additional_domains:
+  - news.nike.com
+  - jordan.com
+  - snkrs.nike.com
+competitor_domains:
+  - adidas.com
+  - puma.com
+  - underarmour.com
+  - reebok.com
+output_dir: scraper_output
