@@ -4,10 +4,11 @@ import time
 import random
 from dotenv import load_dotenv
 import os
+from tqdm import tqdm
 
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
-MODEL_NAME = "gemini-1.5-pro"
+MODEL_NAME = "gemini-2.5-flash"
 genai.configure(api_key=API_KEY)
 ai_model = genai.GenerativeModel(MODEL_NAME)
 
@@ -23,57 +24,90 @@ def generate_similar_prompts(example_prompt: str):
 
     Example prompt:
     "{example_prompt}"
-    Output the new prompts as a clean numbered list, no extra commentary.
+    Output the new prompts as a clean, structured, numbered list. For each new prompt, 
+    provide the required metadata on the line immediately following the prompt, using a 
+    specific, pipe-separated format:
+    
+    1. [New Prompt Text 1]
+    Metadata: [Stakeholder Type] | [Tone] | [Awareness Level] | [Intent]
+    2. [New Prompt Text 2]
+    Metadata: [Stakeholder Type] | [Tone] | [Awareness Level] | [Intent]
+    
+    Example output format:
+    1. How can I appeal the recent denial of my MRI pre-authorization request from my insurer?
+    Metadata: Patient | Frustrated | High | Appeal Denial
     """
+    
+    new_prompts = []
 
     try:
-        resp = ai_model.generate_content(prompt_instruction)
+        resp = ai_model.generate_content(prompt_instruction, request_options={'timeout':60})
         content = resp.text.strip()
-        new_prompts = []
+        curr_prompt = None
         for line in content.splitlines():
-            if line.strip():
-                parts = line.split(". ", 1)
-                if len(parts) > 1:
-                    prompt = parts[-1].strip()
-                else:
-                    prompt = parts[0].strip()
-                new_prompts.append(prompt)
-        return new_prompts[:2]
+            line_strip = line.strip()
+            if not line_strip:
+                continue
+            for i in range(1,3):
+                if line_strip.startswith(tuple([f"{i}."])):
+                    parts = line.split(". ", 1)
+                    if len(parts) > 1:
+                        curr_prompt = parts[-1].strip()
+                elif line_strip.lower().startswith("metadata:") and curr_prompt:
+                    meta_line = line_strip.split(":", 1)[-1].strip()
+                    meta_col = [p.strip() for p in meta_line.split("|")]
+                
+                    if len(meta_col) == 4:
+                        new_prompts.append({
+                            'prompt': curr_prompt,
+                            'Stakeholder Type': meta_col[0],
+                            'Tone': meta_col[1],
+                            'Awareness Level': meta_col[2],
+                            'Intent': meta_col[3]})
+                    curr_prompt = None
+                    
+        return new_prompts
     except Exception as e:
         print("Error", e)
         return
 
 def main():
-    df = pd.read_csv("example_prompts.csv")
-    if "prompt" in df.columns:
-        prompt_col = "prompt"
-    else:
-        possible_cols = []
-        for c in df.columns:
-            if "prompt" in c.lower():
-                possible_cols.append(c)
+    try:
+        df = pd.read_csv("example_prompts.csv", encoding="utf-8-sig")
+    except UnicodeDecodeError:
+        df = pd.read_csv("example_prompts.csv", encoding="latin1")
+    
+    df_limited_prompts = df[:50].copy()
+    prompt_col = None
+    for c in df_limited_prompts:
+        if "prompt" in c.lower():
+            prompt_col = c
+            break
 
-        if possible_cols:
-            prompt_col = possible_cols[0]
-        else:
-            prompt_col = None
-
+    if prompt_col == None:
+        return
     all_new_rows = []
 
-    for i, row in df.iterrows():
+    for i, row in tqdm(df_limited_prompts.iterrows(), total=len(df_limited_prompts), desc="Generating Prompts"):        
         example_prompt = str(row[prompt_col]).strip()
         if not example_prompt:
             continue
 
         new_prompts = generate_similar_prompts(example_prompt)
 
-        for new_p in new_prompts:
-            new_row = row.copy()
-            new_row[prompt_col] = new_p
-            all_new_rows.append(new_row.to_dict())
+        for prompt in new_prompts:
+            new_row = {
+                prompt_col: prompt.get('prompt', ''),
+                            'Stakeholder Type': prompt.get('Stakeholder Type', ''),
+                            'Tone': prompt.get('Tone', ''),
+                            'Awareness Level': prompt.get('Awareness Level', ''),
+                            'Intent': prompt.get('Intent', '')}
+            all_new_rows.append(new_row)
+        time.sleep(random.uniform(1.0, 3.0))
 
     output_df = pd.DataFrame(all_new_rows)
-    output_df.to_csv("output_prompts_df", index=False)
+    output_df.to_csv("output_prompts_df.csv", index=False)
+    print(f"Generated {len(output_df)} new prompts to output_prompts_df.csv", flush=True)
 
 if __name__ == "__main__":
     main()
