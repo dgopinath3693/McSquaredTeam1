@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    build: ./docker/postgres
+    image: mcsquared-postgres:1.0
+    container_name: mcsquared-postgres
+    environment:
+      - POSTGRES_USER=mcsq_user
+      - POSTGRES_PASSWORD=mcsq_pass
+      - POSTGRES_DB=mcsq_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
