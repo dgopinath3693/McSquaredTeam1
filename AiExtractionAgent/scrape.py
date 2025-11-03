@@ -41,7 +41,7 @@ def login_chatgpt():
     driver.get("https://chat.openai.com/auth/login")
     wait.until(EC.presence_of_element_located((By.NAME, "username"))).send_keys(OPENAI_EMAIL)
     driver.find_element(By.NAME, "password").send_keys(OPENAI_PASSWORD + Keys.ENTER)
-    time.sleep(5) 
+    time.sleep(5)
 
 def login_claude():
     driver.get("https://www.anthropic.com/login")
@@ -96,10 +96,10 @@ def extract_response(llm, prompt):
             time.sleep(5)
             answer = driver.find_element(By.CSS_SELECTOR, "div.text-base").text
             
-        results.append({"engine": llm, "prompt": prompt, "answer": answer})
+        results.append({"llm": llm, "prompt": prompt, "answer": answer})
     except Exception as e:
-        print("Error", e)
-        results.append({"engine": llm, "prompt": prompt, "answer": None})
+        print("error", e)
+        results.append({"llm": llm, "prompt": prompt, "answer": None})
 
 login_chatgpt()
 login_claude()
