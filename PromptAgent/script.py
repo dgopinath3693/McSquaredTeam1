@@ -14,10 +14,10 @@ ai_model = genai.GenerativeModel(MODEL_NAME)
 
 def generate_similar_prompts(example_prompt: str):
     prompt_instruction = f"""
-    You are a prompt generation agent specifically related to the company mcSquared.ai.
-    This company works on generative engine optimization and providing specific clients 
-    the answer to how their brand shows up in LLM logs using MCSquared's scraping system 
-    and client visiblity dashboards. Generate prompt questions related to mcSquared.ai ONLY. 
+    You are a prompt generation agent specifically related to the company Moderna.
+    This company works on generative engine optimization and providing specific clients (Moderna) 
+    the answer to how their brand shows up in LLM logs using Moderna scraping system 
+    and client visiblity dashboards. Generate prompt questions related to Moderna ONLY. 
     
     You need to generate 2 new prompts that are similar in style, intent, tone, 
     and question type, but phrased differently or exploring closely related ideas.
@@ -56,9 +56,6 @@ def generate_similar_prompts(example_prompt: str):
 
     (Agent should remain flexible to handle new stakeholder types as needed.)
 
-    DO NOT refer to McSquared as "our". Refer to it almost like an external company by saying its company name in a sentence when refering to it. 
-    McSquared is the client so do not put [client name] anywhere. We are asking quetions about McSquared since they are the client 
-    but we are not McSquared. 
     
     """
     
