@@ -14,7 +14,10 @@ ai_model = genai.GenerativeModel(MODEL_NAME)
 
 def generate_similar_prompts(example_prompt: str):
     prompt_instruction = f"""
-    You are a prompt generation agent. 
+    You are a prompt generation agent specifically related to the company mcSquared.ai.
+    This company works on generative engine optimization and providing specific clients 
+    the answer to how their brand shows up in LLM logs using MCSquared's scraping system 
+    and client visiblity dashboards. Generate prompt questions related to mcSquared.ai ONLY. 
     
     You need to generate 2 new prompts that are similar in style, intent, tone, 
     and question type, but phrased differently or exploring closely related ideas.
@@ -29,13 +32,34 @@ def generate_similar_prompts(example_prompt: str):
     specific, pipe-separated format:
     
     1. [New Prompt Text 1]
-    Metadata: [Stakeholder Type] | [Tone] | [Awareness Level] | [Intent]
+    Metadata: [Stakeholder Type] | [Tone] | [Stage] | [Intent]
     2. [New Prompt Text 2]
-    Metadata: [Stakeholder Type] | [Tone] | [Awareness Level] | [Intent]
+    Metadata: [Stakeholder Type] | [Tone] | [Stage] | [Intent]
     
     Example output format:
     1. How can I appeal the recent denial of my MRI pre-authorization request from my insurer?
     Metadata: Patient | Frustrated | High | Appeal Denial
+
+    Here are four types of stakeholders: 
+    1. Patient Perspective: Identify the types of patients (demographics, conditions, stages of illness),
+    capture concerns, needs, and questions at each stage of their journey (diagnosis → treatment → adherence),
+    map search behavior & language (layman’s terms vs. medical terms), segment by awareness levels (not aware → aware but skeptical → actively seeking solutions).
+    2. Healthcare Provider (Doctor / HCP) Perspective: Uncover pain points & decision-making factors (efficacy, safety, insurance coverage, patient compliance),
+    understand how they evaluate brands and what evidence (studies, guidelines) they rely on, identify adoption barriers (cost, trust, lack of awareness).
+    3. Manufacturer / Brand Perspective: Map brand messaging & positioning vs. stakeholder perceptions, assess how well the brand communicates value propositions, differentiators, and credibility, analyze where the brand is over-promising, under-delivering, or being misunderstood.
+    4. Caregivers: emotional burden, practical challenges, questions around care support.
+    5.  Insurers / Payers: cost-effectiveness, policy alignment, coverage gaps.
+    6. Policy Makers / Regulators: safety, compliance, long-term outcomes.
+
+    The 3 options for the stage of the journey it is at are general learning = Awareness, comparing options = Consideration, taking action = Decision
+    so the stage for each prompt should either Awareness, consideration, or decision based on the promp question. 
+
+    (Agent should remain flexible to handle new stakeholder types as needed.)
+
+    DO NOT refer to McSquared as "our". Refer to it almost like an external company by saying its company name in a sentence when refering to it. 
+    McSquared is the client so do not put [client name] anywhere. We are asking quetions about McSquared since they are the client 
+    but we are not McSquared. 
+    
     """
     
     new_prompts = []
@@ -62,7 +86,7 @@ def generate_similar_prompts(example_prompt: str):
                             'prompt': curr_prompt,
                             'Stakeholder Type': meta_col[0],
                             'Tone': meta_col[1],
-                            'Awareness Level': meta_col[2],
+                            'Stage': meta_col[2],
                             'Intent': meta_col[3]})
                     curr_prompt = None
                     
@@ -94,13 +118,15 @@ def main():
             continue
 
         new_prompts = generate_similar_prompts(example_prompt)
+        if new_prompts is None:
+            continue
 
         for prompt in new_prompts:
             new_row = {
                 prompt_col: prompt.get('prompt', ''),
                             'Stakeholder Type': prompt.get('Stakeholder Type', ''),
                             'Tone': prompt.get('Tone', ''),
-                            'Awareness Level': prompt.get('Awareness Level', ''),
+                            'Stage': prompt.get('Stage', ''),
                             'Intent': prompt.get('Intent', '')}
             all_new_rows.append(new_row)
         time.sleep(random.uniform(1.0, 3.0))
