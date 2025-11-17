@@ -4,6 +4,8 @@ from datetime import datetime
 from typing import List, Dict
 from dataclasses import asdict
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from schema import ContentDocument, ContentType, StructuredData, ContentMetrics, CrawlMetadata
@@ -13,9 +15,29 @@ class ContentCrawler:
     
     def __init__(self, crawler_id: str = "geo-crawler-v1"):
         self.crawler_id = crawler_id
+        self.session = requests.Session()
+        
+        # Realistic headers to avoid blocking
         self.headers = {
-            'User-Agent': f'GEO-Platform/{crawler_id} (Content Analysis Bot)'
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate',
+            'DNT': '1',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1'
         }
+        
+        # Setup retry strategy
+        retry_strategy = Retry(
+            total=3,
+            status_forcelist=[429, 500, 502, 503, 504],
+            allowed_methods=["GET"],
+            backoff_factor=1
+        )
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        self.session.mount("http://", adapter)
+        self.session.mount("https://", adapter)
     
     def crawl(self, url: str, entity_type: str, entity_name: str) -> ContentDocument:
         """
@@ -32,7 +54,14 @@ class ContentCrawler:
         start_time = datetime.utcnow()
         
         try:
-            response = requests.get(url, headers=self.headers, timeout=10)
+            response = self.session.get(
+                url, 
+                headers=self.headers, 
+                timeout=15,
+                verify=True,  # SSL verification
+                allow_redirects=True
+            )
+            response.raise_for_status()
             response_time = (datetime.utcnow() - start_time).total_seconds() * 1000
             
             soup = BeautifulSoup(response.content, 'html.parser')

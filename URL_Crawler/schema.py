@@ -107,6 +107,8 @@ class ContentDocument:
     # Timestamps
     first_seen: str = None
     last_updated: str = None
+
+    keywords: List[str] = None
     
     def __post_init__(self):
         if self.topics is None:

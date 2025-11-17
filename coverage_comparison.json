@@ -1,0 +1,22 @@
+{
+  "AbbVie": {
+    "pages_crawled": 2,
+    "total_words": 1566,
+    "avg_words_per_page": 783,
+    "total_images": 33,
+    "total_links": 101,
+    "content_types": {
+      "other": 2
+    }
+  },
+  "Pfizer": {
+    "pages_crawled": 2,
+    "total_words": 1591,
+    "avg_words_per_page": 795,
+    "total_images": 39,
+    "total_links": 102,
+    "content_types": {
+      "other": 2
+    }
+  }
+}

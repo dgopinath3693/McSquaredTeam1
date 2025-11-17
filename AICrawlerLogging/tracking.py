@@ -1,6 +1,6 @@
-import Pandas
-import NumPY
-import MatPlotlib
+import Pandas as pd
+import numpy as np
+import MatPlotlib as plt
 
 server_df = pd.read_csv("server_logs.csv")
 bots_df = pd.read_csv("bots_table.csv")

@@ -1,0 +1,227 @@
+{
+  "total_unique_bots": 27,
+  "total_unique_urls_accessed": 94,
+  "bots": {
+    "YandexBot/3.0": {
+      "interaction_count": 19,
+      "unique_urls": 14,
+      "status_codes": {
+        "200": 15,
+        "404": 3,
+        "500": 1
+      }
+    },
+    "OpenAI - user bot": {
+      "interaction_count": 292,
+      "unique_urls": 18,
+      "status_codes": {
+        "200": 289,
+        "500": 2,
+        "403": 1
+      }
+    },
+    "Meta AI - training bot": {
+      "interaction_count": 366,
+      "unique_urls": 24,
+      "status_codes": {
+        "200": 266,
+        "404": 63,
+        "400": 27,
+        "304": 9,
+        "504": 1
+      }
+    },
+    "Facebook": {
+      "interaction_count": 98,
+      "unique_urls": 7,
+      "status_codes": {
+        "200": 94,
+        "400": 3,
+        "404": 1
+      }
+    },
+    "bot_type_google_bot": {
+      "interaction_count": 143,
+      "unique_urls": 33,
+      "status_codes": {
+        "200": 139,
+        "404": 3,
+        "504": 1
+      }
+    },
+    "Ahrefs": {
+      "interaction_count": 430,
+      "unique_urls": 56,
+      "status_codes": {
+        "200": 396,
+        "304": 28,
+        "504": 3,
+        "400": 3
+      }
+    },
+    "duckduckgo": {
+      "interaction_count": 11,
+      "unique_urls": 1,
+      "status_codes": {
+        "200": 11
+      }
+    },
+    "Perplexity - training bot": {
+      "interaction_count": 63,
+      "unique_urls": 13,
+      "status_codes": {
+        "200": 63
+      }
+    },
+    "Amazon AI - training bot": {
+      "interaction_count": 98,
+      "unique_urls": 48,
+      "status_codes": {
+        "200": 84,
+        "404": 12,
+        "504": 2
+      }
+    },
+    "OpenAI - search bot": {
+      "interaction_count": 50,
+      "unique_urls": 16,
+      "status_codes": {
+        "200": 50
+      }
+    },
+    "OpenAI - training bot": {
+      "interaction_count": 6,
+      "unique_urls": 5,
+      "status_codes": {
+        "200": 6
+      }
+    },
+    "SemrushBot": {
+      "interaction_count": 56,
+      "unique_urls": 39,
+      "status_codes": {
+        "200": 48,
+        "404": 6,
+        "503": 1,
+        "500": 1
+      }
+    },
+    "Googlebot - desktop": {
+      "interaction_count": 100,
+      "unique_urls": 29,
+      "status_codes": {
+        "200": 94,
+        "404": 2,
+        "504": 1,
+        "400": 2,
+        "304": 1
+      }
+    },
+    "Barkrowler": {
+      "interaction_count": 112,
+      "unique_urls": 56,
+      "status_codes": {
+        "200": 108,
+        "404": 4
+      }
+    },
+    "Googlebot - Mobile": {
+      "interaction_count": 7,
+      "unique_urls": 3,
+      "status_codes": {
+        "200": 7
+      }
+    },
+    "Dataprovider": {
+      "interaction_count": 39,
+      "unique_urls": 13,
+      "status_codes": {
+        "200": 30,
+        "400": 9
+      }
+    },
+    "ZoominfoBot": {
+      "interaction_count": 7,
+      "unique_urls": 1,
+      "status_codes": {
+        "200": 7
+      }
+    },
+    "twitterbot": {
+      "interaction_count": 18,
+      "unique_urls": 2,
+      "status_codes": {
+        "200": 17,
+        "404": 1
+      }
+    },
+    "Linkedin": {
+      "interaction_count": 43,
+      "unique_urls": 3,
+      "status_codes": {
+        "200": 43
+      }
+    },
+    "Claude - training bot": {
+      "interaction_count": 21,
+      "unique_urls": 17,
+      "status_codes": {
+        "200": 16,
+        "304": 4,
+        "404": 1
+      }
+    },
+    "Hubspot": {
+      "interaction_count": 10,
+      "unique_urls": 8,
+      "status_codes": {
+        "200": 6,
+        "404": 2,
+        "400": 2
+      }
+    },
+    "Baiduspider": {
+      "interaction_count": 8,
+      "unique_urls": 8,
+      "status_codes": {
+        "200": 8
+      }
+    },
+    "Google Web Snippet": {
+      "interaction_count": 9,
+      "unique_urls": 1,
+      "status_codes": {
+        "200": 9
+      }
+    },
+    "Common Crawl": {
+      "interaction_count": 40,
+      "unique_urls": 37,
+      "status_codes": {
+        "200": 39,
+        "404": 1
+      }
+    },
+    "Google Site Verification": {
+      "interaction_count": 3,
+      "unique_urls": 1,
+      "status_codes": {
+        "200": 3
+      }
+    },
+    "Bingbot": {
+      "interaction_count": 1,
+      "unique_urls": 1,
+      "status_codes": {
+        "200": 1
+      }
+    },
+    "WhatsApp": {
+      "interaction_count": 2,
+      "unique_urls": 2,
+      "status_codes": {
+        "404": 2
+      }
+    }
+  }
+}

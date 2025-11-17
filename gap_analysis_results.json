@@ -1,0 +1,129 @@
+{
+  "owned_entity": "AbbVie",
+  "competitors": [
+    "Pfizer"
+  ],
+  "total_gaps_identified": 15,
+  "top_gaps": [
+    {
+      "term": "pfizer",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.2501111133311396,
+      "owned_strength": 0.0,
+      "gap_score": 0.2501111133311396,
+      "priority": "High"
+    },
+    {
+      "term": "vaccines",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.21676296488698765,
+      "owned_strength": 0.0,
+      "gap_score": 0.21676296488698765,
+      "priority": "High"
+    },
+    {
+      "term": "button",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.20008889066491167,
+      "owned_strength": 0.0,
+      "gap_score": 0.20008889066491167,
+      "priority": "High"
+    },
+    {
+      "term": "view",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.13339259377660778,
+      "owned_strength": 0.0,
+      "gap_score": 0.13339259377660778,
+      "priority": "High"
+    },
+    {
+      "term": "button previous",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.10004444533245584,
+      "owned_strength": 0.0,
+      "gap_score": 0.10004444533245584,
+      "priority": "High"
+    },
+    {
+      "term": "previous button",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.10004444533245584,
+      "owned_strength": 0.0,
+      "gap_score": 0.10004444533245584,
+      "priority": "High"
+    },
+    {
+      "term": "disease",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.10004444533245584,
+      "owned_strength": 0.0,
+      "gap_score": 0.10004444533245584,
+      "priority": "High"
+    },
+    {
+      "term": "previous",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.10004444533245584,
+      "owned_strength": 0.0,
+      "gap_score": 0.10004444533245584,
+      "priority": "High"
+    },
+    {
+      "term": "diseases",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.11863741138704056,
+      "owned_strength": 0.031280403658169614,
+      "gap_score": 0.08735700772887095,
+      "priority": "Medium"
+    },
+    {
+      "term": "improve",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.08337037111037987,
+      "owned_strength": 0.0,
+      "gap_score": 0.08337037111037987,
+      "priority": "Medium"
+    },
+    {
+      "term": "enable",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.08337037111037987,
+      "owned_strength": 0.0,
+      "gap_score": 0.08337037111037987,
+      "priority": "Medium"
+    },
+    {
+      "term": "significantly",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.06669629688830389,
+      "owned_strength": 0.0,
+      "gap_score": 0.06669629688830389,
+      "priority": "Medium"
+    },
+    {
+      "term": "internal",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.06669629688830389,
+      "owned_strength": 0.0,
+      "gap_score": 0.06669629688830389,
+      "priority": "Medium"
+    },
+    {
+      "term": "internal medicine",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.06669629688830389,
+      "owned_strength": 0.0,
+      "gap_score": 0.06669629688830389,
+      "priority": "Medium"
+    },
+    {
+      "term": "treatment",
+      "competitor": "Pfizer",
+      "competitor_strength": 0.06669629688830389,
+      "owned_strength": 0.0,
+      "gap_score": 0.06669629688830389,
+      "priority": "Medium"
+    }
+  ]
+}
