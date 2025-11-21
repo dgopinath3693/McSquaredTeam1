@@ -32,10 +32,23 @@ def detect_content_gaps(competitor_texts, brand_texts, top_k=10):
 
     return list(gap_terms)
 
-def classify_and_prioritize_gaps(gap_terms):
+def classify_and_prioritize_gaps(gap_terms, competitor_texts):
     results = []
+    all_text = " ".join(competitor_texts).lower()
     for term in gap_terms:
-        priority = "High" if len(term) > 10 else "Medium"
+        count = all_text.count(term.lower())
+        priority = "High" if count > 10 else "Medium"
         results.append({
             "term": term,
+            "count": count,
+            "priority": priority
         })
+    return results
+
+
+if __name__ == "__main__":
+    competitor_texts, brand_texts = load_scraped_content("scraped_content.json")
+    gap_terms = detect_content_gaps(competitor_texts, brand_texts)
+    gaps = classify_and_prioritize_gaps(gap_terms, competitor_texts)
+
+    print(json.dumps(gaps, indent=2))
