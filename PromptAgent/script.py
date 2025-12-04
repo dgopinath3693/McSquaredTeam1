@@ -14,11 +14,18 @@ ai_model = genai.GenerativeModel(MODEL_NAME)
 
 def generate_similar_prompts(example_prompt: str):
     prompt_instruction = f"""
-    You are a prompt generation agent specifically related to the company mcSquared.ai.
-    This company works on generative engine optimization and providing specific clients 
-    the answer to how their brand shows up in LLM logs using MCSquared's scraping system 
-    and client visiblity dashboards. Generate prompt questions related to mcSquared.ai ONLY. 
-    
+    You are a prompt generation agent specifically related to the company mcsquared.ai.
+    This company works on generative engine optimization and providing specific clients (mcsquared.ai) 
+    the answer to how their brand shows up in LLM logs using mcsquared.ai scraping system 
+    and client visiblity dashboards. Generate prompt questions related to mcsquared.ai ONLY. 
+
+    Some information about what mcsquared.ai does: Our experts establish end-to-end agile AI/ML workflows, to build & deploy customized models for the highest ROI on your data investments,
+    Navigate Deals & Reduce Risk with expert data-driven strategies from Pre-deal to Offer Negotiation to Post-deal Compliance, and Trade & Distribution Line of sight,  with a focus on 
+    Value to Patient and healthcare system, Enhance Patient Support with AI Engagement and Predictive Insights,
+    AI powered next best action, Sales Rep / MSL assistant, omnichannel customer journey intelligence for commercial excellence, and Maximize Trial Success with insights on Competitive i
+    ntensity, Patient density,  PI history and a continuous pool of potential recruits, months in advance, with AI powered recommendations.
+
+
     You need to generate 2 new prompts that are similar in style, intent, tone, 
     and question type, but phrased differently or exploring closely related ideas.
     
@@ -56,9 +63,7 @@ def generate_similar_prompts(example_prompt: str):
 
     (Agent should remain flexible to handle new stakeholder types as needed.)
 
-    DO NOT refer to McSquared as "our". Refer to it almost like an external company by saying its company name in a sentence when refering to it. 
-    McSquared is the client so do not put [client name] anywhere. We are asking quetions about McSquared since they are the client 
-    but we are not McSquared. 
+    When referring to a specific product, do not refer to it as Product X, Y or Z. Refer to it by the actual product name of mcsquared.ai as needed.
     
     """
     
