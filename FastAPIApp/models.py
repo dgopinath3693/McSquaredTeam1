@@ -37,7 +37,11 @@ class PromptAnalysis(Base):
     __tablename__ = "prompt_analysis"
     
     id = Column(Integer, primary_key=True, index=True)
-    prompt = Column(Text, nullable=False)
-    ai_answer = Column(Text, nullable=False)
+    llm = Column(String(50), nullable=True)  # Which LLM generated the response
+    prompt = Column(Text, nullable=False)  # Full prompt text
+    ai_answer = Column(Text, nullable=False)  # Summarized answer
+    answer_length = Column(Integer, nullable=True)  # Length of original answer
+    summary_length = Column(Integer, nullable=True)  # Length of summarized answer
+    status = Column(String(50), nullable=True)  # Extraction status
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())

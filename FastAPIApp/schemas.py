@@ -3,7 +3,7 @@ Pydantic schemas for request/response validation
 """
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 
 class DomainScoreCalculationCreate(BaseModel):
@@ -44,8 +44,12 @@ class ContentGapAnalysisResponse(ContentGapAnalysisCreate):
 
 class PromptAnalysisCreate(BaseModel):
     """Schema for creating a Prompt Analysis"""
+    llm: Optional[str] = None
     prompt: str
     ai_answer: str
+    answer_length: Optional[int] = None
+    summary_length: Optional[int] = None
+    status: Optional[str] = None
 
 
 class PromptAnalysisResponse(PromptAnalysisCreate):
@@ -56,3 +60,8 @@ class PromptAnalysisResponse(PromptAnalysisCreate):
     
     class Config:
         from_attributes = True
+
+
+class PromptAnalysisBulkCreate(BaseModel):
+    """Schema for bulk creating Prompt Analysis from CSV"""
+    records: List[PromptAnalysisCreate]
