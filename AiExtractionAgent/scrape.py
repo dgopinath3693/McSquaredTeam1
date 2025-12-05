@@ -11,6 +11,16 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import logging
 from datetime import datetime
 import os
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+# Load environment variables
+load_dotenv()
+
+# Configure Gemini API for summarization
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY)
 
 # Set up logging
 logging.basicConfig(
@@ -42,9 +52,9 @@ class AIExtractionAgent:
         # Note: Claude and Grok require login. Set skip_login_check=True to attempt anyway.
         self.llms = {
             "Perplexity": "https://www.perplexity.ai/",
-            "ChatGPT": "https://chatgpt.com/",
-            "Claude": "https://claude.ai/new",  # Requires login
-            "Grok": "https://x.com/i/grok",  # Requires X/Twitter login
+            # "ChatGPT": "https://chatgpt.com/",
+            # "Claude": "https://claude.ai/new",  # Requires login
+            # "Grok": "https://x.com/i/grok",  # Requires X/Twitter login
             "Copilot": "https://copilot.microsoft.com/",
             "Gemini": "https://gemini.google.com/app"
         }
@@ -87,6 +97,28 @@ class AIExtractionAgent:
         }
         time.sleep(wait_times.get(llm, 10))
         return True
+    
+    def summarize_text(self, text):
+        """Summarize text using Gemini API"""
+        if not GEMINI_API_KEY:
+            logger.warning("Gemini API key not found - returning original text")
+            return text
+        
+        try:
+            model = genai.GenerativeModel('gemini-pro')
+            prompt = f"""Please provide a concise summary of the following text in 2-3 sentences:
+
+{text}
+
+Summary:"""
+            
+            response = model.generate_content(prompt)
+            summary = response.text.strip()
+            logger.info(f"Summarized {len(text)} chars to {len(summary)} chars")
+            return summary
+        except Exception as e:
+            logger.error(f"Summarization error: {e}")
+            return text  # Return original if summarization fails
     
     def debug_page_elements(self, llm_name):
         """Debug helper to log page elements when extraction fails"""
@@ -930,12 +962,20 @@ class AIExtractionAgent:
             
             logger.info(f"Extracted {len(answer) if answer else 0} chars - Status: {status}")
             
+            # Summarize the answer if extraction was successful
+            summarized_answer = answer
+            if status == "success" and answer and len(answer) > 100:
+                logger.info(f"Summarizing answer from {llm}...")
+                summarized_answer = self.summarize_text(answer)
+            
             self.results.append({
                 "llm": llm, 
                 "prompt": prompt[:100] + "..." if len(prompt) > 100 else prompt,
                 "full_prompt": prompt,
-                "answer": answer,
+                "original_answer": answer,
+                "summarized_answer": summarized_answer,
                 "answer_length": len(answer) if answer else 0,
+                "summary_length": len(summarized_answer) if summarized_answer else 0,
                 "status": status,
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             })
@@ -1050,8 +1090,8 @@ class AIExtractionAgent:
 
 
 if __name__ == "__main__":
-    # Run extraction on 10 prompts for each LLM
+    # Run extraction on first 5 prompts for each LLM
     agent = AIExtractionAgent()
-    agent.run(prompt_limit=10)
+    agent.run(prompt_limit=5)
 
     

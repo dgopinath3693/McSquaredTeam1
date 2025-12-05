@@ -1,0 +1,244 @@
+llm,full_prompt,summarized_answer,answer_length,summary_length,status,timestamp
+Perplexity,"Assess our brand's strategic positioning within major LLM query logs relative to key competitors in the oncology market, identifying core sentiment drivers and areas of reputational risk. Propose immediate, data-driven interventions leveraging mcsquared.ai's generative engine optimization insights to enhance our brand's positive presence and mitigate adverse perception.","jor LLM query logs relative to key competitors in the oncology market, identifying core sentiment drivers and areas of reputational risk. Propose immediate, data-driven interventions leveraging mcsquared.ai's generative engine optimization insights to enhance our brand's positive presence and mitigate adverse perception.
+Working…
+
+Ask a follow-up
+Sign in or create an account
+Unlock Pro Search and History
+Continue with Google
+Continue with Apple
+Continue with email
+Single sign-on (SSO)",489,489,success,2025-12-05 12:02:19
+Perplexity,"For a potential acquisition target in the biotech sector, evaluate the long-term ROI potential of their existing data investments and proprietary AI/ML models, projecting their impact on valuation beyond 2025. Detail critical pre-deal data quality risks and post-deal integration complexities, outlining a strategic roadmap utilizing mcsquared.ai's data-driven M&A expertise to maximize synergy and reduce compliance exposure.","Your brand appears to be competing in two distinct but related arenas: (1) AI-mediated perception within LLM ecosystems in oncology and (2) data and model-driven asset value in biotech M&A. The strategic opportunity is to deliberately shape how AI systems “see” your brand and your target, then hard-wire that view into data governance, integration, and compliance workstreams beyond 2025.intuitionlabs+6
+LLM positioning in oncology
+Within major LLMs, oncology brands tend to be framed along a few recurring axes: evidence strength, clinical innovation, safety profile, access/affordability, and ethics/compliance. In AI-generated comparisons, competitors that anchor strongly to structured, machine-readable sources (knowledge graphs, regulated trial registries, high-signal publications) are more likely to be positioned as category leaders, while others show up as secondary or absent.llm+1
+Core sentiment drivers in oncology typically include:
+Positive: pivotal-trial outcomes, inclusion in guidelines, transparent safety data, patient-centric access programs, and clear differentiation vs standard of care.forbes+1
+Negative: trial setbacks, safety signals, pricing controversies, opaque risk communication, and any ambiguity around data integrity or regulatory findings.astera+2
+Reputational risk patterns
+Reputational risk in AI-mediated channels often arises from data gaps and inconsistencies that LLMs “fill in” with generic or competitor-favoring narratives. When oncology brands have fragmented profiles across sites like regulatory databases, guidelines, clinical trial registries, and public knowledge graphs, models can mis-attribute products, underplay strengths, or over-index on legacy controversies.alation+2
+Key oncology-specific risk vectors include:
+Confusion between mechanism-of-action peers, leading to weaker perceived differentiation and blurred safety/efficacy positioning.deloitte+1
+Incomplete or inconsistent references to indications, lines of therapy, and biomarker-selected populations, which can distort perceived clinical value.llm+1
+Over-emphasis on isolated safety events when there is not enough structured, contextual risk–benefit data for the model to balance.intuitionlabs+1
+Immediate GEO interventions with mcsquared.ai
+Using mcsquared.ai’s generative engine optimization (GEO) paradigm, your near-term interventions should focus on tightening your “AI-facing” evidence graph and stress-testing LLM narratives about your brand and competitors. Concretely:forbes+2
+Entity and knowledge graph hardening
+Normalize and enrich your brand, product, and key-people entities across Wikidata-style graphs, company profiles, and specialized oncology registries so that models resolve you consistently and distinctly from competitors.llm+1
+Ensure indications, mechanisms, trial identifiers, and regulatory milestones are reflected in structured, citation-ready formats tied to reputable sources that LLMs commonly use.deloitte+2
+Oncology narrative “test-and-tune”
+Systematically prompt multiple frontier models with realistic HCP, payer, and patient-style questions about your brand vs named oncology competitors, cataloging framing, omissions, and hallucinations.forbes+1
+Feed findings into a GEO playbook: prioritized content updates (data-backed FAQs, mechanism explainers, safety-context pages), improved tagging/transcripts of KOL content, and clarified disclosures around risk–benefit and access.alation+1
+Risk-focused content calibration
+Where LLMs overemphasize safety or pricing controversy, publish concise, data-rich clarifications anchored in peer-reviewed or regulatory documentation, then ensure these are easily crawlable, structured, and cross-linked.astera+2
+Use mcsquared.ai workflows to simulate how different content variants shift AI-generated summaries, selecting those that consistently produce factually accurate, balanced, and favorable oncology narratives.llm+1
+Biotech target: data and model ROI
+For a biotech acquisition target, long-term ROI from data and proprietary AI/ML models depends on quality, uniqueness, scalability, and regulatory robustness of their datasets and pipelines. In life sciences, high-quality, compliant data and well-governed models can materially influence valuation because they accelerate development, de-risk submissions, and enable differentiated IP (e.g., predictive biomarkers, trial-optimization engines).atlan+4
+When projecting post-2025 value contribution, prioritize:
+Data assets: longitudinal patient-level data, multi-omics, imaging, high-fidelity real-world evidence, and well-annotated preclinical datasets, all with clear provenance and rights for secondary use",4660,4660,success,2025-12-05 12:04:29
+Perplexity,"Which core value propositions of our new oncology therapeutic are most under-indexed in LLM-generated patient information by mcsquared.ai's brand visibility system, and what is the estimated impact on patient adherence rates in the next fiscal year?","There is not enough public information to answer this question accurately for your specific product and for mcsquared.ai’s proprietary system. Public oncology and AI literature does not describe your “new oncology therapeutic,” its branded value propositions, or how mcsquared.ai’s brand visibility algorithms are scoring LLM‑generated patient content for your asset, so any attempt to name “which” propositions are under‑indexed or to quantify adherence impact would be speculative rather than evidence‑based.mcsquared+1
+What can be inferred in general
+In oncology, value propositions that most strongly influence adherence typically include:
+Clear survival or progression‑free survival benefit vs standard of care
+Better tolerability and manageable side‑effect profile
+Simpler dosing or monitoring burden
+Financial predictability and support programs
+These domains are widely emphasized in value and adherence research in cancer therapy.jmcp+2
+LLM‑generated patient information tends to over‑index on high‑level explanations of disease and mechanism of action, while often under‑emphasizing practical aspects that affect real‑world use, such as symptom management strategies, when to call the care team, and navigation of financial assistance, as noted in recent work on LLMs and patient engagement in oncology. If those practical, adherence‑relevant aspects are also core to your product’s value story but appear infrequently or superficially in model‑generated content, they are plausible candidates for being “under‑indexed,” yet this still cannot be confirmed for your specific brand without direct access to your internal dashboards and scoring rules.pmc.ncbi.nlm.nih+1
+Why the adherence impact cannot be quantified
+Linking message under‑representation to “estimated impact on patient adherence rates in the next fiscal year” requires:
+Your product’s current adherence baseline (e.g., proportion of patients persisting at 6 or 12 months by indication)
+The share of your patients who rely meaningfully on LLM‑generated content as an information source
+A model connecting changes in message exposure (e.g., visibility of toxicity‑management or affordability messages) to adherence deltas, ideally derived from prior omnichannel or market access experiments for your or similar brands
+While there is general evidence that better communication about side‑effects, prognosis, and financial toxicity improves adherence and persistence in oncology, the published literature does not provide brand‑level elasticities that could be safely applied to your situation. Without your internal real‑world data and mcsquared.ai’s proprietary visibility and impact models, no credible numerical estimate for “next fiscal year” adherence can be given.tnoncology+2
+How you could answer this internally
+Within your organization, a robust way to answer your original question would be to:
+Extract your product’s approved core value pillars (efficacy endpoints, safety profile, QoL, convenience, affordability/value).
+Pull the latest brand‑visibility / LLM‑content scoring output from your analytics partner and calculate which pillars show the largest negative gap between “strategic importance” (weight in your value story) and “observed representation” in patient‑facing LLM content.
+Combine that with historical evidence or pilot tests where improving communication on similar pillars (e.g., better toxicity‑management education) led to measurable changes in adherence or persistence for your product or close analogues.
+Those internal analyses, which are not available publicly, would allow your team and mcsquared.ai to estimate a realistic adherence impact range (for example, “closing the under‑indexing gap on toxicity‑management and financial‑support messages is expected to improve 12‑month persistence by X–Y percentage points among digitally engaged patients”), but that level of product‑specific quantification cannot be reconstructed from public sources alone.mcsquared+2
+10 sources",3982,3982,success,2025-12-05 12:06:37
+Perplexity,"Which specific patient segments or therapeutic pathways represent the highest untapped commercial growth opportunities for our autoimmune portfolio over the next three years, informed by mcsquared.ai's omnichannel customer journey intelligence and predictive insights?","mcsquared.ai’s omnichannel journey intelligence and predictive models are typically used to surface underserved patient segments where diagnosis, initiation, or persistence systematically break down, so the highest untapped growth usually sits where those frictions cluster together in sizeable, fast‑growing subpopulations and high‑value therapies. For an autoimmune portfolio over the next three years, this tends to mean specific phenotypes and care pathways in early, misdiagnosed, or switch‑ready patients rather than the already‑optimized biologic‑experienced core.mcsquared+3
+Likely high‑value patient segments
+Under‑diagnosed and late‑diagnosed patients in common autoimmune conditions (e.g., mild or atypical RA, PsA, SLE, IBD) who show repeated symptomatic visits in primary care, dermatology, or gastroenterology without guideline‑directed work‑up or referral; journey intelligence often flags long pre‑diagnosis “diagnostic odysseys,” representing a concentrated pool of incremental eligible patients if education and referral triggers are optimized.innoplexus+1
+Biologic‑eligible but untreated patients where EMR, claims, and engagement data show sustained disease activity despite csDMARDs or conventional systemic therapy, but no escalation; AI‑based next‑best‑action can prioritize HCPs managing clusters of such patients for targeted omnichannel campaigns and field pull‑through.mcsquared+1
+Switch‑ready patients with suboptimal control, adherence issues, or administration burden on current biologics or small molecules (e.g., frequent dose interruptions, corticosteroid dependence, high rescue therapy use) where predictive models indicate high near‑term probability of switch; these are prime targets for differentiated positioning on efficacy, safety, mode of administration, or QOL.mcsquared+1
+Co‑morbid and high‑complexity patients (e.g., autoimmune plus cardiometabolic risk, chronic infections, or pregnancy plans) where journey analytics reveal fragmented care across specialties and hesitation to use existing options; better coordinated messaging and specialty‑specific content can open incremental volume if your assets have relevant data or label advantages.pmc.ncbi.nlm.nih+1
+Priority therapeutic pathways
+Early diagnosis and accelerated referral pathways (primary care → rheumatology/dermatology/gastroenterology): omnichannel insights often show missed triggers (lab patterns, recurring flares, imaging orders) and low engagement with diagnostic content; prioritizing decision‑support messaging and referral prompts in those journeys can expand the treatable population.journalijsra+1
+Treatment escalation pathways from csDMARDs/topicals to advanced therapies: predictive intelligence can identify HCPs and sites that systematically “stall” at conventional therapy despite poor outcomes, enabling focused campaigns, tailored content sequences, and field actions that specifically address perceived barriers (safety, payer friction, monitoring burden).journalijsra+1
+Persistence, adherence, and rescue‑therapy pathways: journeys that show frequent gaps in fills, dose delays, steroid bursts, or ER visits despite prescribed advanced therapy indicate high latent demand for better‑tolerated or easier‑to‑use options; optimized patient support, reminder programs, and channel mix (e.g., digital coaching) can unlock durable, higher‑quality volume.pmc.ncbi.nlm.nih+1
+Cross‑specialty coordination pathways (e.g., rheum‑derm in PsA, GI‑derm in IBD with skin involvement): customer journey analytics commonly reveal siloed engagement and inconsistent messaging across specialties; harmonizing content and timing around shared patients can grow market share in complex, multi‑organ phenotypes where unmet need and willingness to switch are high.innoplexus+1
+How to use mcsquared.ai’s insights
+Use behavioral and claims‑based segmentation to quantify each of the above segments in your in‑line indications (size, growth, therapy mix, payer mix, and switch likelihood), then rank them by three‑year incremental revenue potential and ease of omnichannel activation.mcsquared+1
+Deploy next‑best‑action and omnichannel mix optimization against the top 2–3 segments per indication, aligning HCP and patient touchpoints (field, email, web, social, patient programs) to the breakpoints the models flag in each pathway (e.g., just before third steroid burst, after second biologic interruption, or at repeat non‑diagnostic visits).mcsquared+1
+Continuously re‑segment: autoimmune HCP and patient segments can shift within 6–12 months; dynamic, AI‑driven updating of segments and triggers maintains focus on the highest‑value, newly emerging micro‑segments rather than static",4689,4689,success,2025-12-05 12:08:46
+Perplexity,"Assess our brand's perception in LLM logs relative to our two primary competitors from Q1-Q3 2024, focusing on sentiment, key value proposition mentions, and any emerging misinterpretations identified by the mcsquared.ai scraping system.","There is not enough accessible data to genuinely assess how your brand is perceived in LLM logs versus your two competitors for Q1–Q3 2024, so any quantitative or detailed qualitative comparison would be speculative rather than reliable. Public web sources and your vendor’s site do not expose the underlying mcsquared.ai scraping output, the prompts used, specific log samples, or model mix for that time window, which are all required for a defensible sentiment and positioning analysis.llm+2
+What is realistically needed
+To answer your question in the way you intend, the following elements from your internal environment (or from your mcsquared.ai account) are required:
+Export of LLM interaction logs or summarized brand mentions for Q1–Q3 2024, segmented by brand (you and the two competitors), including at least timestamps, the model used, and text snippets or embeddings of mentions.llm
+The processed output from the mcsquared.ai scraping pipeline or any downstream dashboards it feeds (e.g., sentiment scores, topic clusters, misinterpretation tags) tied to brand entities and date ranges.mcsquared+1
+Your current brand messaging architecture (core value propositions, proof points, “do not say” language) and equivalent information for competitors, so the system’s outputs can be judged as on‑message/off‑message rather than in the abstract.llm
+Without these, there is no way to credibly quantify sentiment, identify which value propositions are being picked up, or distinguish one‑off hallucinations from systematic misinterpretations.
+How to structure the analysis once data is available
+Assuming you can pull those datasets, a practical framework for the assessment is:
+Sentiment over time (Q1–Q3 2024)
+Compute average sentiment and distribution (negative/neutral/positive) for each brand per month, broken down by model family if possible.llm
+Flag inflection points (e.g., a shift from neutral to positive) and annotate them against major releases, marketing campaigns, or PR events for you and each competitor.llm
+Value proposition coverage and prominence
+Build a taxonomy of 5–10 canonical value props per brand (e.g., “end‑to‑end data platform”, “specialization in life sciences”, “speed of deployment”).mcsquared+1
+Use keyword/phrase matching plus embedding‑based similarity to score how often each value prop appears in LLM descriptions and how early it appears in answers (e.g., top‑3 bullet vs. buried detail).llm
+Misinterpretations and failure modes
+From the mcsquared.ai scraping output, isolate mentions where:
+Your brand is conflated with another entity (name collisions, wrong industry, wrong geography).
+Capabilities are overstated/understated versus your actual offering.
+Outdated or deprecated positioning is still showing up.
+Classify each issue by severity (e.g., confusing category, legal risk, mild inaccuracy) and by likely root cause (outdated web content, ambiguous naming, weak presence in structured data/knowledge graphs).llm
+Recommended output structure and KPIs
+Once you run the analysis above, a concise Q1–Q3 view could be organized with metrics such as:
+Net sentiment score and share of negative mentions per brand, per quarter.llm
+“On‑message coverage” rate: percentage of LLM brand descriptions that hit at least 3 of your target value props versus competitors’.llm
+Misinterpretation incidence: number of distinct misinterpretation patterns and volume of affected responses per 1,000 brand mentions.llm
+A simple table to present the core comparison might look like this (placeholders shown until your internal data are available):
+Dimension Your brand (Q1–Q3 2024) Competitor A Competitor B
+Avg sentiment score [requires log data] [requires log data] [requires log data]
+Positive mention share [requires log data] [requires log data] [requires log data]
+Top 3 value props LLMs cite [from taxonomy/analysis] [from taxonomy/analysis] [from taxonomy/analysis]
+Misinterpretation patterns [from mcsquared output] [from mcsquared output] [from mcsquared output]
+How to move forward
+Ask your team or mcsquared.ai contact for an export of Q1–Q3 2024 scraped outputs and any existing sentiment/NER/topic annotations for all three brands.mcsquared+1
+Align on your “source of truth” brand messaging document so every value prop and misinterpretation can be scored against a clear reference.llm
+Once those datasets are available, a follow‑up focused on implementation details (queries, metrics, and visualization templates) can translate your question into a concrete dashboard or report.
+10 sources",4534,4534,success,2025-12-05 12:10:54
+Copilot,"Assess our brand's strategic positioning within major LLM query logs relative to key competitors in the oncology market, identifying core sentiment drivers and areas of reputational risk. Propose immediate, data-driven interventions leveraging mcsquared.ai's generative engine optimization insights to enhance our brand's positive presence and mitigate adverse perception.",Could not extract answer,24,24,failed,2025-12-05 12:18:46
+Copilot,"For a potential acquisition target in the biotech sector, evaluate the long-term ROI potential of their existing data investments and proprietary AI/ML models, projecting their impact on valuation beyond 2025. Detail critical pre-deal data quality risks and post-deal integration complexities, outlining a strategic roadmap utilizing mcsquared.ai's data-driven M&A expertise to maximize synergy and reduce compliance exposure.",Could not extract answer,24,24,failed,2025-12-05 12:26:53
+Copilot,"Which core value propositions of our new oncology therapeutic are most under-indexed in LLM-generated patient information by mcsquared.ai's brand visibility system, and what is the estimated impact on patient adherence rates in the next fiscal year?",Could not extract answer,24,24,failed,2025-12-05 12:35:00
+Copilot,"Which specific patient segments or therapeutic pathways represent the highest untapped commercial growth opportunities for our autoimmune portfolio over the next three years, informed by mcsquared.ai's omnichannel customer journey intelligence and predictive insights?","Today
+You said
+Which specific patient segments or therapeutic patways represent the highest untapped commercial growt opportunities for our autoimmune portfolio over thenext three years, informed by mcsquared.ai's omnichanel customer journey intelligence and predictive insihts?
+Copilot said
+Quick Answer: The highest untapped commercial growth opportunities in autoimmune therapeutics over the next three years lie in emerging patient segments such as early-diagnosed, underserved populations in dermatology and gastroenterology, and in novel therapeutic pathways including IL-23/IL-17 modulation, JAK inhibition, and next-generation precision biologics. mcSquared.ai’s omnichannel intelligence suggests that personalized engagement of niche patient journeys—especially in psoriasis, atopic dermatitis, Crohn’s disease, and systemic lupus erythematosus—will unlock disproportionate commercial value
+Nature
++2
+.
+🔑 Key Patient Segments
+Dermatology (Psoriasis, Atopic Dermatitis, Urticaria)
+Large patient base with significant unmet needs in moderate-to-severe cases.
+Rising demand for biologics and targeted therapies beyond topical steroids.
+Digital engagement shows high responsiveness to precision-messaging campaigns
+ihealthcareanalyst.com
+.
+Gastroenterology (Crohn’s Disease, Ulcerative Colitis)
+Increasing prevalence and earlier diagnosis in younger populations.
+Patients often cycle through multiple therapies, creating opportunities for differentiated positioning.
+Predictive insights highlight adherence challenges—ripe for omnichannel interventions
+ihealthcareanalyst.com
+.
+Systemic Autoimmune Disorders (Lupus, Rheumatoid Arthritis, Multiple Sclerosis)
+Lupus remains underpenetrated commercially due to complex heterogeneity.
+RA and MS markets are crowded, but niche subsegments (early RA, progressive MS) show untapped potential
+synapse.patsnap.com
+.
+🧬 Emerging Therapeutic Pathways
+Pathway Opportunity Commercial Rationale
+IL-23 / IL-17 inhibitors Expanding beyond psoriasis into Crohn’s and ankylosing spondylitis Strong efficacy, differentiated safety profile
+Nature
+JAK inhibitors Oral therapies for RA, IBD, dermatology Convenience + broad applicability, but requires risk stratification
+Nature
+Type I Interferon modulation Lupus and rare systemic autoimmune diseases Addresses high unmet need, limited competition
+Nature
+Precision biologics & bispecific antibodies Tailored immune modulation Potential to capture refractory patients
+Nature
+📈 Commercial Growth Drivers (2025–2028)
+Market Expansion: Autoimmune therapeutics projected to grow from $189.77B in 2025 to $382.33B by 2032 (CAGR ~10.5%)
+360iresearch.com
+.
+Omnichannel Differentiation: mcSquared.ai’s predictive journey intelligence highlights that patients in dermatology and gastroenterology respond best to integrated digital + HCP engagement, reducing drop-off rates.
+Early Diagnosis & Precision Medicine: Leveraging AI-driven segmentation to identify early-stage patients and tailor therapy pathways accelerates adoption.
+🚀 Strategic Recommendations
+Prioritize dermatology and gastroenterology portfolios—these segments show the strongest unmet need and fastest growth.
+Invest in IL-23/IL-17 and JAK inhibitor pathways—they represent the most commercially scalable innovations.
+Deploy omnichannel predictive insights to personalize patient journeys, focusing on adherence and switching behavior.
+Target underserved systemic diseases (lupus, progressive MS) with precision biologics to capture niche but high-value markets.
+Bottom Line: By aligning mcSquared.ai’s predictive omnichannel intelligence with emerging therapeutic pathways, the next three years offer the greatest untapped growth in dermatology, gastroenterology, and systemic lupus segments, driven by IL-23/IL-17, JAK inhibitors, and precision biologics.
+Would you like me to map these opportunities into a competitive landscape matrix (showing where rivals are strong vs. where whitespace exists)? That could help visualize exactly where to deploy resources.
+Sources: 
+Nature
++3
+Smart (GPT-5)",4036,4036,success,2025-12-05 12:40:24
+Copilot,"Assess our brand's perception in LLM logs relative to our two primary competitors from Q1-Q3 2024, focusing on sentiment, key value proposition mentions, and any emerging misinterpretations identified by the mcsquared.ai scraping system.","Today
+You said
+Assess our brand's perception in LLM logs relativeto our two primary competitors from Q1-Q3 2024, focuing on sentiment, key value proposition mentions, an any emerging misinterpretations identified by the msquared.ai scraping system.
+Copilot said
+See my thinking
+Context needed to deliver the assessment
+To give you a clean, apples-to-apples view, I need a bit more from you. If you have it handy, share:
+Log data: Q1–Q3 2024 LLM interaction logs (yours + two competitors), with timestamps and text.
+Competitor IDs: Exact names or identifiers used in the logs.
+Value prop taxonomy: Your canonical list of value propositions and preferred phrasing.
+msquared.ai  fields: The scraping output schema (e.g., source, snippet, label, confidence, misinterpretation flags).
+Any prior labels: If sentiment or topic tags already exist, include them; if not, raw is fine.
+What I will assess and how
+Sentiment distribution: Positive/neutral/negative share by quarter and brand, plus change over time.
+Drivers of sentiment: The phrases and contexts most associated with positive vs. negative mentions.
+Value proposition coverage: Frequency and correctness of your core value props vs. competitors; gap and win analysis.
+Misinterpretations: Systematic misunderstandings flagged by msquared.ai, their prevalence, severity, and root causes.
+Comparative position: Where you lead or lag, with practical recommendations to correct drift and amplify strengths.
+Metrics and definitions
+Sentiment score:
+Definition: Proportion of positive, neutral, negative mentions per brand and quarter.
+Signal: Momentum and consistency; flag atypical swings.
+Value prop accuracy:
+Definition: Percent of mentions that correctly reflect your intended meaning.
+Signal: Brand clarity; misalignment suggests messaging or discoverability issues.
+Share of voice (LLM context):
+Definition: Percent of total LLM mentions per brand, normalized by source.
+Signal: Visibility in AI-generated surfaces, not overall market share.
+Misinterpretation rate:
+Definition: Percent of mentions with incorrect claims, outdated info, or conflated features.
+Signal: Risk to perception; track by topic and source.
+Emerging themes:
+Definition: New or rising topics (n-gram clusters) Q2→Q3 with ≥X% growth.
+Signal: Early shifts in how LLMs talk about you and competitors.
+Comparison table template (to populate with your data)
+Attribute Your brand (Q1→Q3) Competitor A (Q1→Q3) Competitor B (Q1→Q3)
+Sentiment (pos/neu/neg %)
+Top positive drivers
+Top negative drivers
+Value prop coverage (top 5)
+Value prop accuracy (%)
+Misinterpretation rate (%)
+Emerging themes
+Sources: Add msquared.ai  and any internal log pipelines once provided.
+Misinterpretations triage and remediation
+High-severity errors:
+Label: Incorrect pricing, capabilities, compliance, or security claims.
+Action: Update canonical pages, add structured data, and seed LLM-grounded FAQs; coordinate PR/legal for corrections.
+Medium-severity drift:
+Label: Outdated feature language, conflated competitor features, ambiguous naming.
+Action: Tighten nomenclature, publish comparison guides, and reinforce product truth in high-authority domains.
+Low-severity noise:
+Label: Minor phrasing inconsistencies without user harm.
+Action: Monitor; include in quarterly refresh.
+Delivery format
+Executive summary: 1-page narrative of shifts Q1→Q3, your net position, and 3 priority actions.
+Data appendix: Tables and charts (sentiment, share of voice, value prop accuracy, misinterpretations by topic/source).
+Recommendations: Specific messaging, content, and technical SEO updates to steer LLM narratives.
+Next step
+If you can share a sample from Q2 (even 1–2k rows) plus your value prop taxonomy, I’ll produce a first-cut comparison and highlight the fastest fixes worth making now.
+Edit in a page
+Smart (GPT-5)",3814,3814,success,2025-12-05 12:43:05
+Gemini,"Assess our brand's strategic positioning within major LLM query logs relative to key competitors in the oncology market, identifying core sentiment drivers and areas of reputational risk. Propose immediate, data-driven interventions leveraging mcsquared.ai's generative engine optimization insights to enhance our brand's positive presence and mitigate adverse perception.","jor LLM query logs relative to key competitors in the oncology market, identif
+Opens in a new window
+Opens in a new window
+Opens in a new window
+Opens in a new window
+Conversation with Gemini
+Assess our brand's strategic positioning within major LLM query logs relative to key competitors in the oncology market, identifying core sentiment drivers and areas of reputational risk. Propose immediate, data-driven interventions leveraging mcsquared.ai's generative engine optimization insights to enhance our brand's positive presence and mitigate adverse perception.
+
+Fast
+Gemini can make mistakes, so double-check it",615,615,success,2025-12-05 12:44:17
+Gemini,"For a potential acquisition target in the biotech sector, evaluate the long-term ROI potential of their existing data investments and proprietary AI/ML models, projecting their impact on valuation beyond 2025. Detail critical pre-deal data quality risks and post-deal integration complexities, outlining a strategic roadmap utilizing mcsquared.ai's data-driven M&A expertise to maximize synergy and reduce compliance exposure.",Could not find input box,24,24,failed,2025-12-05 12:52:29
+Gemini,"Which core value propositions of our new oncology therapeutic are most under-indexed in LLM-generated patient information by mcsquared.ai's brand visibility system, and what is the estimated impact on patient adherence rates in the next fiscal year?",Could not find input box,24,24,failed,2025-12-05 13:00:40
+Gemini,"Which specific patient segments or therapeutic pathways represent the highest untapped commercial growth opportunities for our autoimmune portfolio over the next three years, informed by mcsquared.ai's omnichannel customer journey intelligence and predictive insights?",Could not find input box,24,24,failed,2025-12-05 13:08:52
+Gemini,"Assess our brand's perception in LLM logs relative to our two primary competitors from Q1-Q3 2024, focusing on sentiment, key value proposition mentions, and any emerging misinterpretations identified by the mcsquared.ai scraping system.",Could not find input box,24,24,failed,2025-12-05 13:17:03
