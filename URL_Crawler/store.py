@@ -1,10 +1,34 @@
 import json
+import logging
+import math
+import os
+import sys
+from collections import Counter
+from dataclasses import asdict
 from datetime import datetime
 from typing import List, Dict, Optional
-from dataclasses import asdict
-from collections import Counter
-import math
+
 from schema import ContentDocument
+
+sys.path.append('../URL_Crawler')
+
+try:
+    from store import ContentStore
+except ImportError:
+    print("Warning: store.py not found, using fallback data structure")
+
+    class ContentStore:
+        def __init__(self, path="content_store.json"):
+            self.documents = {}
+
+        def get_by_type(self, entity_type):
+            return []
+
+        def get_by_entity(self, entity_name):
+            return []
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
 
 class ContentStore:
     """Manages normalized content storage and retrieval with TF-IDF keyword extraction"""

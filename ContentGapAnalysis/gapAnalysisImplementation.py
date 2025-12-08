@@ -4,6 +4,7 @@ import math
 from collections import Counter
 import sys
 import os
+import logging
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,23 +24,31 @@ except ImportError:
             return []
 
 
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
+
+
 def simple_tokenize(text):
-    """Basic tokenization without external dependencies"""
+    """Improved tokenization to handle edge cases"""
     if not text:
         return []
-    return re.findall(r'\b[a-zA-Z]{3,}\b', text.lower())
+    return re.findall(r'\b[a-zA-Z0-9]{3,}\b', text.lower())
 
 
 def calculate_tf_idf(documents):
-    """Simple TF-IDF calculation without scikit-learn"""
+    """Simple TF-IDF calculation with empty document handling"""
+    if not documents:
+        return [], []
+
     doc_freq = Counter()
     all_docs_tokens = []
 
     for doc in documents:
         if doc.clean_text:
             tokens = simple_tokenize(doc.clean_text)
-            all_docs_tokens.append(tokens)
-            doc_freq.update(set(tokens))
+            if tokens:
+                all_docs_tokens.append(tokens)
+                doc_freq.update(set(tokens))
 
     tfidf_scores = []
     total_docs = len(all_docs_tokens)
@@ -90,19 +99,21 @@ def detect_content_gaps_simple(competitor_docs, brand_docs, top_k=10):
 
 
 def load_content_from_store(store_path="content_store.json"):
-    """Load content from ContentStore"""
+    """Load content from ContentStore with better error handling"""
     try:
         store = ContentStore(store_path)
-        competitor_docs = store.get_by_type("competitor")
-        brand_docs = store.get_by_type("owned_brand")
+        competitor_docs = store.get_by_type("competitor") or []
+        brand_docs = store.get_by_type("owned_brand") or []
         return competitor_docs, brand_docs
+    except FileNotFoundError:
+        logger.error(f"Content store file not found: {store_path}")
     except Exception as e:
-        print(f"Error loading content from store: {e}")
-        return [], []
+        logger.error(f"Error loading content from store: {e}")
+    return [], []
 
 
-def classify_and_prioritize_gaps(gap_terms, competitor_docs):
-    """Classify and prioritize gap terms"""
+def classify_and_prioritize_gaps(gap_terms, competitor_docs, high_threshold=15, medium_threshold=8):
+    """Classify and prioritize gap terms with dynamic thresholds"""
     if not gap_terms:
         return []
 
@@ -116,9 +127,9 @@ def classify_and_prioritize_gaps(gap_terms, competitor_docs):
         count = word_freq.get(term.lower(), 0)
         frequency_percent = (count / total_words * 100) if total_words > 0 else 0
 
-        if count > 15 and frequency_percent > 0.1:
+        if count > high_threshold and frequency_percent > 0.1:
             priority = "High"
-        elif count > 8 and frequency_percent > 0.05:
+        elif count > medium_threshold and frequency_percent > 0.05:
             priority = "Medium"
         else:
             priority = "Low"
@@ -159,30 +170,30 @@ def analyze_content_coverage():
 
         return coverage
     except Exception as e:
-        print(f"Error analyzing coverage: {e}")
+        logger.error(f"Error analyzing coverage: {e}")
         return {}
 
 
 def main():
-    print("Starting Simplified Content Gap Analysis...")
+    logger.info("Starting Simplified Content Gap Analysis...")
 
     competitor_docs, brand_docs = load_content_from_store()
 
     if not competitor_docs:
-        print("No competitor content found in store")
-        print("Please run the crawler first to populate the content store")
+        logger.warning("No competitor content found in store")
+        logger.info("Please run the crawler first to populate the content store")
         return
 
-    print(f"Loaded {len(competitor_docs)} competitor documents")
-    print(f"Loaded {len(brand_docs)} brand documents")
+    logger.info(f"Loaded {len(competitor_docs)} competitor documents")
+    logger.info(f"Loaded {len(brand_docs)} brand documents")
 
     gap_terms = detect_content_gaps_simple(competitor_docs, brand_docs, top_k=15)
 
     if not gap_terms:
-        print("No gap terms identified")
+        logger.info("No gap terms identified")
         return
 
-    print(f"Identified {len(gap_terms)} potential gap terms")
+    logger.info(f"Identified {len(gap_terms)} potential gap terms")
 
     gaps = classify_and_prioritize_gaps(gap_terms, competitor_docs)
     coverage = analyze_content_coverage()
@@ -198,10 +209,10 @@ def main():
         }
     }
 
-    print("\n" + "=" * 50)
-    print("GAP ANALYSIS RESULTS")
-    print("=" * 50)
-    print(json.dumps(results, indent=2))
+    logger.info("\n" + "=" * 50)
+    logger.info("GAP ANALYSIS RESULTS")
+    logger.info("=" * 50)
+    logger.info(json.dumps(results, indent=2))
 
 
 if __name__ == "__main__":
