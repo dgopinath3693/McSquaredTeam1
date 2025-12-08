@@ -11,8 +11,12 @@ from models import DomainScoreCalculation, ContentGapAnalysis, PromptAnalysis
 from schemas import (
     DomainScoreCalculationCreate, DomainScoreCalculationResponse,
     ContentGapAnalysisCreate, ContentGapAnalysisResponse,
-    PromptAnalysisCreate, PromptAnalysisResponse
+    PromptAnalysisCreate, PromptAnalysisResponse,
+    DomainScoreRequest, DomainScoreResponse,
+    AIRecommendationRequest, AIRecommendationResponse
 )
+from domain_score_calculator import DomainScoreCalculator
+from ai_recommendation_generator import AIRecommendationGenerator
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -380,6 +384,102 @@ def bulk_import_prompt_analysis(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error during bulk import: {str(e)}"
+        )
+
+
+# ==================== ENDPOINT 4: Domain Score Calculation (New) ====================
+
+@app.post("/domain_score/calculate", response_model=DomainScoreResponse)
+def calculate_domain_score(request: DomainScoreRequest):
+    """
+    Calculate domain visibility score for a brand based on crawler, extraction, and gap analysis outputs.
+    
+    Parameters:
+    - **brand**: str - Brand name to calculate score for
+    
+    Returns: Domain score with breakdown and metadata
+    """
+    try:
+        calculator = DomainScoreCalculator()
+        score_data = calculator.calculate_domain_score(request.brand)
+        
+        return DomainScoreResponse(
+            brand=score_data['brand'],
+            overall_score=score_data['overall_score'],
+            score_breakdown=score_data['score_breakdown'],
+            weights=score_data['weights'],
+            metadata=score_data['metadata']
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error calculating domain score: {str(e)}"
+        )
+
+
+# ==================== ENDPOINT 5: AI-Powered Recommendations ====================
+
+@app.post("/domain_score/recommendations", response_model=AIRecommendationResponse)
+def generate_ai_recommendations(request: AIRecommendationRequest):
+    """
+    Generate AI-powered recommendations explaining domain score and providing improvement actions.
+    Uses Google Gemini to generate detailed explanations and actionable recommendations.
+    
+    Parameters:
+    - **brand**: str - Brand name to generate recommendations for
+    - **include_score_calculation**: bool - If True, calculates score first (default: True)
+    
+    Returns: AI-generated explanation and recommendations
+    """
+    try:
+        calculator = DomainScoreCalculator()
+        
+        # Calculate score if requested
+        if request.include_score_calculation:
+            score_data = calculator.calculate_domain_score(request.brand)
+        else:
+            # Use existing score data if available, otherwise calculate anyway
+            score_data = calculator.calculate_domain_score(request.brand)
+        
+        # Generate AI recommendations
+        try:
+            generator = AIRecommendationGenerator()
+            recommendations = generator.generate_recommendations(score_data)
+            
+            return AIRecommendationResponse(
+                brand=request.brand,
+                overall_score=score_data['overall_score'],
+                explanation=recommendations['explanation'],
+                recommendations=recommendations['recommendations'],
+                score_breakdown=score_data['score_breakdown'],
+                metadata=score_data['metadata']
+            )
+        except ValueError as e:
+            # If Gemini API key is not set, return error
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"AI recommendation generation failed: {str(e)}. Please set GEMINI_API_KEY environment variable."
+            )
+        except Exception as e:
+            # If AI generation fails, return score with fallback recommendations
+            generator = AIRecommendationGenerator()
+            fallback_recs = generator._generate_fallback_recommendations(score_data)
+            
+            return AIRecommendationResponse(
+                brand=request.brand,
+                overall_score=score_data['overall_score'],
+                explanation=f"AI recommendation generation encountered an error: {str(e)}",
+                recommendations=fallback_recs,
+                score_breakdown=score_data['score_breakdown'],
+                metadata=score_data['metadata']
+            )
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error generating recommendations: {str(e)}"
         )
 
 

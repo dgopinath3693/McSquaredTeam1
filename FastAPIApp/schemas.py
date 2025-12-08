@@ -65,3 +65,51 @@ class PromptAnalysisResponse(PromptAnalysisCreate):
 class PromptAnalysisBulkCreate(BaseModel):
     """Schema for bulk creating Prompt Analysis from CSV"""
     records: List[PromptAnalysisCreate]
+
+
+# ==================== Domain Score Calculation Schemas ====================
+
+class ScoreBreakdown(BaseModel):
+    """Score breakdown by component"""
+    crawler_score: float
+    gap_analysis_score: float
+    bot_analytics_score: float
+    extraction_score: float
+
+
+class ScoreMetadata(BaseModel):
+    """Metadata about the score calculation"""
+    crawler_docs_count: int
+    total_gaps: int
+    bot_interactions: int
+    extraction_count: int
+
+
+class DomainScoreRequest(BaseModel):
+    """Request schema for calculating domain score"""
+    brand: str
+
+
+class DomainScoreResponse(BaseModel):
+    """Response schema for domain score calculation"""
+    brand: str
+    overall_score: float
+    score_breakdown: ScoreBreakdown
+    weights: dict
+    metadata: ScoreMetadata
+
+
+class AIRecommendationRequest(BaseModel):
+    """Request schema for generating AI recommendations"""
+    brand: str
+    include_score_calculation: bool = True  # If True, calculates score first
+
+
+class AIRecommendationResponse(BaseModel):
+    """Response schema for AI recommendations"""
+    brand: str
+    overall_score: Optional[float] = None
+    explanation: str
+    recommendations: str
+    score_breakdown: Optional[ScoreBreakdown] = None
+    metadata: Optional[ScoreMetadata] = None
