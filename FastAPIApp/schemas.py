@@ -37,6 +37,8 @@ class ContentGapAnalysisResponse(ContentGapAnalysisCreate):
     id: int
     created_at: datetime
     updated_at: Optional[datetime] = None
+    competitors_using: Optional[List[str]] = None
+    competitor_count: Optional[int] = None
     
     class Config:
         from_attributes = True
