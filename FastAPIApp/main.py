@@ -356,6 +356,10 @@ def bulk_import_prompt_analysis(
         
         for index, row in df.iterrows():
             try:
+                # check to ensure that if failed does not show
+                if row.get('status') == 'failed':
+                    failed_count += 1
+                    continue
                 db_prompt_analysis = PromptAnalysis(
                     llm=row.get('llm'),
                     prompt=row.get('full_prompt'),
