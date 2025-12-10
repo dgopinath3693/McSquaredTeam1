@@ -7,8 +7,7 @@
 - Ritvik Gudlavalleti
 
 ## Overview
-
-AI-powered competitive intelligence platform. Crawls websites, extracts content, identifies gaps versus competitors, and tracks AI bot activity.
+Repository holding all code realted to the McSqaured Team 1's code for the GEO dashboard backend
 
 ## Core Components
 
